@@ -60,13 +60,13 @@ output "s3_bucket_arn" {
 }
 ```
 This module has 5 inputs:
-source         = path to module
-aws_region     = string #AWS region to deploy resources
-instance_type  = string #EC2 instance type
-ami_id         = string #AMI ID for the EC2 instance
-bucket_name    = string #Name of the S3 bucket, must be unique!
+* source         = path to module
+* aws_region     = string #AWS region to deploy resources
+* instance_type  = string #EC2 instance type
+* ami_id         = string #AMI ID for the EC2 instance
+* bucket_name    = string #Name of the S3 bucket, must be unique!
 
 This module has 2 outputs:
-ec2_public_ip	 = The public IP address of the EC2 instance
-s3_bucket_arn	 = The ARN (Amazon Resource Name) of the S3 bucket
+* ec2_public_ip	 = The public IP address of the EC2 instance
+* s3_bucket_arn	 = The ARN (Amazon Resource Name) of the S3 bucket
 
