@@ -1,7 +1,15 @@
 There were 2 main challenges I faced. Both of them involved how provisioning resources through Terraform interacted with AWS regions.
 
-First, when I was trying to use my Terraform module to create an EC2 instance, I kept getting an error stating that the AMI ID I was referencing doesn't exist. I tried multiple different AMI IDs that were available on the EC2 managment console under the AMI section. Yet, I kept getting the same error. I learned that AMIs are tied to specific regions and that the region I was using us-west-1 didn't have, or wasn't compatible with the AMI I was specifying. I could have just changed my region to us-east-1, but instead I opted to figure out how I could have Terraform use an AWS data source to find the latest Linux AMI compatible with my instance type. Then, boom, no errors!
+First, when I was trying to use my Terraform module to create an EC2 instance, I kept getting an error stating that the AMI ID I was
+referencing doesn't exist. I tried multiple different AMI IDs that were available on the EC2 managment console under the AMI section.
+Yet, I kept getting the same error. I learned that AMIs are tied to specific regions and that the region I was using us-west-1 didn't have, or
+wasn't compatible with the AMI I was specifying. I could have just changed my region to us-east-1, but instead I opted to figure out how I 
+could have Terraform use an AWS data source to find the latest Linux AMI compatible with my instance type. Then, boom, no errors!
 
-My second issue I faced as I was writing and testing my module was being able to get an S3 bucket up and running with Terraform. I kept getting an error that said something along the lines of "expected region ap-12, got us-east-1. Initially, I thought that I had to somehow manage what region my S3 bucket was interacting with, but it turns out that the error I got was kind of misleading. The error turned out to be that the bucket name I was using was already taken, and S3 bucket names must be GLOBALLY unique. Once I gave it a unique bucket name, no more errors.
+My second issue I faced as I was writing and testing my module was being able to get an S3 bucket up and running with Terraform. 
+I kept getting an error that said something along the lines of "expected region ap-12, got us-east-1." Initially, I thought that I had to
+somehow manage what region my S3 bucket was interacting with, but it turns out that the error I got was kind of misleading. The error turned 
+out to be that the bucket name I was using was already taken, and S3 bucket names must be GLOBALLY unique. Once I gave it a unique bucket
+name, no more errors.
 
 Overall, I had a great time putting together this little module and I feel like I learned a lot! I'm excited to grow in my Terraform proficiency!
